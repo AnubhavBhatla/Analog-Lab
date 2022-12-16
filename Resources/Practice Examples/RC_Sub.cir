@@ -1,0 +1,16 @@
+Subcircuits
+.subckt RC_subcircuit In Out com
+r In Out 1k
+c Out com 1u
+.ends
+
+vsin IN gnd sin(0 2.5 1k 0 0)
+xrc_1 In 1 gnd RC_subcircuit
+xrc_2 1 2 gnd RC_subcircuit
+xrc_3 2 Out gnd RC_subcircuit
+.control
+tran 0.02m 40m
+plot v(In)
+plot v(Out)
+.endc
+.end

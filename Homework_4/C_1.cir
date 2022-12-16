@@ -1,0 +1,24 @@
+Circuit - 1
+*Including the predefined op-amp subcircuit file
+.include lm324.txt
+
+R1 1 2 75k
+R2 2 0 820
+Rg 2 3 20k
+Rf 3 4 180k
+Rl 4 0 10k
+C2 2 0 0.01u
+C1 5 0 0.01u
+x1 6 3 5 0 4 LM324
+V1 1 0 dc 5
+Vdd 5 0 dc 5
+Vin 6 0 dc 0
+
+.dc Vin 0.1 5 0.1
+.control
+run
+
+plot v(6) v(4)
+
+.endc
+.end

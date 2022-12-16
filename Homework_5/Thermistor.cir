@@ -1,0 +1,21 @@
+Thermistor
+*Including the predefined subcircuit files
+.include Thermistor.txt
+
+x1 1 t1 2 thermistor Ro=1K alpha=3548
+V1 t1 0 dc 0
+
+x2 1 t2 2 thermistor Ro=1K alpha=-3548
+V2 t2 0 dc 0
+
+V0 1 0 dc 1
+Vtemp 2 0 dc 0
+
+.dc Vtemp -20 160 0.1
+.control
+run
+
+plot {v(1)/i(V1)} {v(1)/i(V2)}
+
+.endc
+.end

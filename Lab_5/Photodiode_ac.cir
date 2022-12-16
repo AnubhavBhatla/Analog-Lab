@@ -1,0 +1,28 @@
+Photodiode
+*Including the predefined subcircuit files
+.include lm324.txt
+
+I1 1 0 dc 1.5u ac 1
+CJ 1 0 11p
+x1 2 1 4 5 out lm324
+R1 1 out 1.4Meg
+C1 1 out 3.3p
+R2 2 4 13.7k
+R3 2 0 280
+C2 2 0 1u
+Vref 2 0 dc 0.1
+VCC 4 0 dc 5
+VEE 5 0 dc 0
+
+.ac dec 10 10 100Meg
+.control
+run
+
+meas ac vdb_max max vdb(out) from=10 to=100MEG
+let V3db = vdb_max - 3
+meas ac freq_3db when vdb(out)=V3db
+
+plot {vdb(out)}
+
+.endc
+.end

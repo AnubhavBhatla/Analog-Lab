@@ -1,0 +1,24 @@
+Wein-bridge Oscillator
+*Including the subcircuit files
+.include TL084.txt
+
+R1 0 1 390
+R2 1 out 820
+
+VCC 4 0 dc 15
+VEE 5 0 dc -15
+
+x1 2 1 4 5 out TL084
+Ca 3 2 0.1u
+Ra out 3 150
+Cb 2 0 0.1u
+Rb 2 0 150
+
+.tran 0.0001m 20m
+.control
+run
+
+plot v(out)
+
+.endc
+.end

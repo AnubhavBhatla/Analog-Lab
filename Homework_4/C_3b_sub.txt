@@ -1,0 +1,14 @@
+*Circuit - 3b
+*Including the predefined op-amp subcircuit file
+.include uA741.txt
+
+.SUBCKT 3B 1 3
+
+R1 1 2 18k
+R2 2 3 1.5Meg
+C1 2 3 47n
+VCC 5 0 dc 15
+VEE 6 0 dc -15
+x1 0 2 5 6 3 uA741
+
+.ends

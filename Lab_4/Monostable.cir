@@ -1,0 +1,29 @@
+Monostable Multivibrator
+*Including the predefined subcircuit files
+.include zener_B.txt
+.include uA741.txt
+.include switch.txt
+
+R1 4 0 10k
+R2 3 4 10k
+R3 2 3 1k
+R4 1 7 10k
+C 1 6 10u
+VCC 8 0 dc 15
+VEE 9 0 dc -15
+Va 6 0 dc -15
+Vb 7 0 dc 15
+x1 4 1 8 9 2 uA741
+x2 3 5 DI_1N4734A
+x3 0 5 DI_1N4734A
+x4 1 6 button_sw
+
+.tran 0.01m 500m
+.control
+run
+
+*print v(3) v(4)
+print v(3) v(1)
+
+.endc
+.end

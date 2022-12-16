@@ -1,0 +1,19 @@
+Family of Curves
+
+*Model file for the MOSFET
+.include tsmc_spice_180nm.txt
+
+*the order of terminals is drain, gate, source and body
+
+m1 d g gnd gnd CMOSN
+vgs g gnd dc 1.8
+vds dummy gnd dc 1.8
+vdummy dummy d dc 0
+
+.control
+dc vds 0 1.8 0.02 vgs 0 1 0.2
+
+plot i(vdummy)
+
+.endc
+.end

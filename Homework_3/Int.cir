@@ -1,0 +1,20 @@
+Integrator
+*Including the predefined op-amp subcircuit file
+.include uA741.txt
+
+R1 1 2 10k
+VCC 4 gnd dc 15
+VEE 5 gnd dc -15
+x1 gnd 2 4 5 3 uA741
+R2 2 3 470k
+C 2 3 0.01u
+Vi 1 gnd pulse(-2 2 0 0 0 0.5m 1m)
+
+.tran 0.00005m 30m
+.control
+run
+
+plot v(1) v(3)
+
+.endc
+.end

@@ -1,0 +1,17 @@
+*Circuit - 3a
+*Including the predefined op-amp subcircuit file
+.include zener_B.txt
+.include uA741.txt
+
+.SUBCKT 3A 1 3
+
+R1 1 2 8.2k
+R2 2 3 15k
+R3 4 3 1k
+VCC 5 0 dc 15
+VEE 6 0 dc -15
+x1 2 0 5 6 4 uA741
+x2 3 7 DI_1N4734A
+x3 0 7 DI_1N4734A
+
+.ends

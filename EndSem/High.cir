@@ -1,0 +1,21 @@
+High Pass Filer with Unity gain Amplifier
+*Including the subcircuit files
+.include TL084.txt
+
+R in 1 6.8k
+L 1 0 1
+VCC 3 0 dc 15
+VEE 4 0 dc -15
+x1 1 out 3 4 out TL084
+
+Vin in 0 ac 1 dc 0
+
+.ac dec 100 1 1Meg
+.control
+run
+
+plot vdb(out)
+print vdb(out)
+
+.endc
+.end

@@ -1,0 +1,17 @@
+RC Integrator
+
+*Connections as mentioned in the subcircuit file
+R 1 2 10k
+C 2 0 0.1u
+
+*Giving an input
+Vin 1 0 pulse(0 5 0 0 0 0.05m 0.1m)
+
+.tran 0.0002m 10m
+.control
+run
+
+plot v(1) v(2)
+print v(1) v(2)
+.endc
+.end

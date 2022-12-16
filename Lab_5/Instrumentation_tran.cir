@@ -1,0 +1,29 @@
+Instrumentation Amplifier
+*Including the predefined subcircuit files
+.include uA741.txt
+
+Vcm cm 0 dc 0
+Vi1 cm in1 sin(0 250m 1k 0 0)
+Vi2 in2 cm sin(0 250m 1k 0 0)
+x1 in1 1 9 10 3 uA741
+x2 in2 2 9 10 4 uA741
+x3 6 5 9 10 out uA741
+R1 3 5 10k
+R2 5 out 10k
+R3 4 6 10k
+R4 6 8 10k
+R5 4 2 10k
+R6 3 1 10k
+R10 1 2 2.21k
+Vref 8 0 dc 0
+VCC 9 0 dc 15
+VEE 10 0 dc -15
+
+.tran 0.01m 10m
+.control
+run
+
+print v(in1,in2) v(out)
+
+.endc
+.end

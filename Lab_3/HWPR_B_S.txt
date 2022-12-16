@@ -1,0 +1,14 @@
+*Half-Wave Precision Rectifier - B
+*Including the predefined op-amp subcircuit file
+.include uA741.txt
+
+.subckt HWPR in out
+R1 in 2 10k
+R2 2 out 10k
+D1 4 2
+D2 out 4
+VCC 5 0 dc 15
+VEE 6 0 dc -15
+x1 0 2 5 6 4 uA741
+
+.ends

@@ -1,0 +1,17 @@
+RC Lowpass Filter
+
+*Connections as mentioned in the subcircuit file
+R 1 2 10k
+C 2 0 0.1u
+
+*Giving an input
+Vin 1 0 dc 0 ac 1
+
+.ac dec 10 1 1Meg
+.control
+run
+
+plot vdb(2)
+print vdb(2)
+.endc
+.end

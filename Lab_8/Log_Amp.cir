@@ -1,0 +1,33 @@
+Logarithmic Amplifier
+*Including the predefined subcircuit files
+.include TL084.txt
+
+* Diode 1N4148 SPICE Model Data
+.model 1N4148   D(Is=6.314n N=1.9164 Rs=0 Ikf=44.17m Xti=3 Eg=1.11 Cjo=.95p
++               M=.55 Vj=.75 Fc=.5 Isr=11.07n Nr=2.088 Bv=100 Ibv=100u Tt=11.07n)
+
+VCC 5 0 dc 15
+VEE 6 0 dc -15
+
+Vin in 0 dc 0
+xop1 in 1 5 6 1 TL084
+R 1 2 2364
+xop2 0 2 5 6 out1 TL084
+D 2 out1 1N4148
+R1 out1 3 10k
+xop3 offset 3 5 6 out2 TL084
+Voffset offset 0 dc -0.2758
+R11 3 out2 10k
+xop4 out2 4 5 6 out TL084
+R2 4 0 1k
+R3 4 out 19.1613k
+
+.dc Vin 0.01 10 0.01
+.control
+run
+
+plot v(out) vs v(in)
+plot v(out) vs log(v(in))
+
+.endc
+.end

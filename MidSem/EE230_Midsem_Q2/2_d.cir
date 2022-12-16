@@ -1,0 +1,23 @@
+Circuit 2-d
+*Including the predefined subcircuit files
+.include lm324.txt
+
+RG in 1 8.036k
+RF 1 out 123.6k
+R1 2 0 7.79k
+R2 ref 2 121.2k
+Vref ref 0 10.4
+Vos 5 2 2m
+VCC 3 0 dc 5
+VEE 4 0 dc 0
+x1 5 1 3 4 out lm324
+Vin in 0 ac 0
+
+.dc Vin 0 2 0.01
+.control
+run
+
+plot v(out) vs v(in)
+
+.endc
+.end

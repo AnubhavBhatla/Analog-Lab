@@ -1,0 +1,29 @@
+Test
+*Including the subcircuit files
+.include TL084.txt
+
+R1 1 5 6.8k
+R2 5 2 6.8k
+R3 2 3 3.3k
+C1 3 4 0.1u
+R4 4 0 3.3k
+
+VCC 6 0 dc 15
+VEE 7 0 dc -15
+
+x1 1 2 6 7 3 TL084
+x2 4 2 6 7 5 TL084
+
+R in 1 6.8k
+x3 1 out 6 7 out TL084
+
+Vin in 0 ac 1 dc 0
+
+.ac dec 10 100 50k
+.control
+run
+
+plot vdb(out)
+
+.endc
+.end

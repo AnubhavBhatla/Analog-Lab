@@ -1,0 +1,20 @@
+Circuit - 3b
+*Including the predefined op-amp subcircuit file
+.include uA741.txt
+
+R1 1 2 18k
+R2 2 3 1.5Meg
+C1 2 3 47n
+VCC 5 0 dc 15
+VEE 6 0 dc -15
+x1 0 2 5 6 3 uA741
+Vin 1 0 pulse(-5 5 0 0 0 0.5m 1m)
+
+.tran 0.01m 110m 100m
+.control
+run
+
+plot v(3) v(1)
+
+.endc
+.end

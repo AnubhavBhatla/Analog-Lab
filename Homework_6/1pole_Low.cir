@@ -1,0 +1,22 @@
+Single Pole Active Low-Pass Filter
+*Including the subcircuit files
+.include uA741.txt
+
+RA in 1 4.7k
+CA 1 0 0.1u
+VCC 3 0 dc 12
+VEE 4 0 dc -12
+x1 1 2 3 4 out uA741
+R1 out 2 9.1k
+R2 2 0 1k
+
+Vin in 0 ac 1 dc 0
+
+.ac dec 10 1 10Meg
+.control
+run
+
+plot vdb(out)
+
+.endc
+.end

@@ -1,0 +1,23 @@
+Inverting Amplifier
+*Including the predefined op-amp subcircuit file
+.include uA741.txt
+
+R1 1 2 1k
+VCC 4 gnd dc 15
+VEE 5 gnd dc -15
+x1 gnd 2 4 5 3 uA741
+R2 2 3 10k
+Vi 1 gnd dc 0 ac 0.1
+
+.control
+
+alter R2=10k
+ac dec 10 10 10Meg
+
+alter R2=100k
+ac dec 10 10 10Meg
+
+plot {20*log10(abs(ac1.v(3))*10) 20*log10(abs(ac2.v(3))*10)}
+
+.endc
+.end

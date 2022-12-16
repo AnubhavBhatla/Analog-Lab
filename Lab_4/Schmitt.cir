@@ -1,0 +1,25 @@
+Schmitt Trigger
+*Including the predefined subcircuit files
+.include zener_B.txt
+.include uA741.txt
+
+R1 4 5 10k
+R2 3 4 10k
+R3 2 3 1k
+VCC 7 0 dc 15
+VEE 8 0 dc -15
+Va 5 0 dc -3
+x1 4 1 7 8 2 uA741
+x2 3 6 DI_1N4734A
+x3 0 6 DI_1N4734A
+Vi 1 0 sin(0 6 1k 0 0)
+
+.tran 0.01m 5m 1m
+.control
+run
+
+print v(3) v(1)
+*plot v(3) vs v(1)
+
+.endc
+.end

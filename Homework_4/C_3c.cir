@@ -1,0 +1,16 @@
+Circuit - 3c
+*Including the predefined op-amp subcircuit file
+.include C_3a_sub.txt
+.include C_3b_sub.txt
+
+x1 1 2 3A
+x2 2 1 3B
+
+.tran 0.01m 101m 99m
+.control
+run
+
+plot v(1) v(2)
+
+.endc
+.end

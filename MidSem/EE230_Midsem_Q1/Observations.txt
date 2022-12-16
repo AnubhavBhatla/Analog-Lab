@@ -1,0 +1,2 @@
+The plots obtained for part b and c are similar to the ones obtained using theoretical calculations.
+I predicted a threshold value equal to +-(Vz+Vzon) = +-5.3V and the values obtained using the simulation are close to +-5.5V, which is reasonably close to the theoretical values.

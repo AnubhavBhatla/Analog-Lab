@@ -1,0 +1,21 @@
+Astable Multivibrator
+*Including the predefined subcircuit files
+.include zener_B.txt
+.include uA741.txt
+
+R1 3 0 30k
+R2 2 3 35k
+R 1 2 50k
+C 1 0 0.01u
+VCC 4 0 dc 15
+VEE 5 0 dc -15
+x1 3 1 4 5 2 uA741
+
+.tran 0.01m 10m
+.control
+run
+
+print v(2) v(1)
+
+.endc
+.end

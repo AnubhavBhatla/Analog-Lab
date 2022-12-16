@@ -1,0 +1,28 @@
+Zener Regulator
+
+*Zener Subcircuit
+.SUBCKT ZENER_12 1 2
+D1 1 2 DF
+DZ 3 1 DR
+VZ 2 3 10.8
+.MODEL DF D ( IS=27.5p RS=0.620 N=1.10 CJO=78.3p VJ=1.00 M=0.330 TT=50.1n)
+.MODEL DR D ( IS=5.49f RS=50 N=1.77 )
+.ENDS
+
+Rs 1 dummys 470
+Vdummys dummys 2 dc 0
+xz dummyz 2 ZENER_12
+Vdummyz dummyz 0 dc 0
+Rl 2 dummyl 900
+Vdummyl dummyl 0 dc 0
+Vin 1 0 dc 20
+
+.op
+*.dc Vin 15 25 0.5
+.control
+run
+
+print v(2)
+
+.endc
+.end

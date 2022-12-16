@@ -1,0 +1,1 @@
+For part (c), at Vin = 400mV, we are getting Vout as 3.5V and for Vin = 650mV, Vout = 0.8V. So, comparing these output values, we can observe that there is a slight different between theoretical and simulation readings, which can be explained by the fact that Rf/Rg which was supposed to be 16, is actually around 14.6 due to the availability of the resistance values.
